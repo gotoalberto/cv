@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alberto Gómez Toribio - CV</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔗</text></svg>">
+    <link rel="alternate icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg==">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        @page {
+            size: A4;
+            margin: 15mm;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.5;
+            color: #2d3748;
+            background: #ffffff;
+            font-size: 9pt;
+        }
+        
+        .container {
+            max-width: 210mm;
+            margin: 0 auto;
+            background: white;
+            min-height: 297mm;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>') repeat;
+            animation: float 20s infinite linear;
+        }
+        
+        @keyframes float {
+            0% { transform: translateX(0) translateY(0) rotate(0deg); }
+            100% { transform: translateX(-100px) translateY(-100px) rotate(360deg); }
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .profile-photo {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            font-weight: 600;
+            border: 3px solid rgba(255,255,255,0.3);
+            flex-shrink: 0;
+        }
+        
+        .header-info h1 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 5px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .header-info .subtitle {
+            font-size: 14px;
+            font-weight: 400;
+            opacity: 0.9;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 15px;
+            font-size: 10px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            opacity: 0.95;
+        }
+        
+        .content {
+            padding: 25px;
+        }
+        
+        .section {
+            margin-bottom: 25px;
+            page-break-inside: avoid;
+        }
+        
+        .section-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #4a5568;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #e2e8f0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .section-icon {
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+        }
+        
+        .summary-text {
+            font-size: 10px;
+            line-height: 1.6;
+            color: #4a5568;
+            text-align: justify;
+        }
+        
+        .awards-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 10px;
+        }
+        
+        .award-item {
+            background: linear-gradient(135deg, #f7fafc, #edf2f7);
+            padding: 12px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        
+        .award-icon {
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+        
+        .award-title {
+            font-weight: 600;
+            font-size: 9px;
+            color: #2d3748;
+            margin-bottom: 2px;
+        }
+        
+        .award-details {
+            font-size: 8px;
+            color: #718096;
+        }
+        
+        .press-links {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+            margin-top: 10px;
+        }
+        
+        .press-link {
+            padding: 6px 10px;
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 4px;
+            text-decoration: none;
+            color: #4a5568;
+            font-size: 8px;
+            text-align: center;
+            transition: all 0.2s;
+        }
+        
+        .press-link:hover {
+            background: #667eea;
+            color: white;
+            transform: translateY(-1px);
+        }
+        
+        .company-group {
+            margin-bottom: 25px;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            overflow: hidden;
+            background: #ffffff;
+        }
+        
+        .company-header {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 12px 15px;
+            font-weight: 700;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .company-positions {
+            padding: 0;
+        }
+        
+        .experience-item {
+            margin-bottom: 0;
+            padding: 15px;
+            background: #fafafa;
+            border-radius: 0;
+            border-left: none;
+            border-bottom: 1px solid #e2e8f0;
+            position: relative;
+        }
+        
+        .experience-item:last-child {
+            border-bottom: none;
+        }
+        
+        .experience-item.same-company {
+            margin-left: 0;
+            margin-top: 0;
+            border-left: none;
+            background: #f7fafc;
+        }
+        
+        .experience-item.same-company::before {
+            display: none;
+        }
+        
+        .standalone-experience {
+            margin-bottom: 25px;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            overflow: hidden;
+            background: #ffffff;
+        }
+        
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 8px;
+        }
+        
+        .company-name {
+            font-weight: 700;
+            font-size: 11px;
+            color: #2d3748;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .position-title {
+            font-weight: 600;
+            font-size: 10px;
+            color: #4a5568;
+            margin-top: 2px;
+        }
+        
+        .date-range {
+            font-size: 8px;
+            color: #718096;
+            background: #e2e8f0;
+            padding: 4px 8px;
+            border-radius: 12px;
+            white-space: nowrap;
+        }
+        
+        .experience-description {
+            font-size: 9px;
+            line-height: 1.5;
+            color: #4a5568;
+            text-align: justify;
+            margin-bottom: 10px;
+        }
+        
+        .skills-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 8px;
+        }
+        
+        .skill-chip {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 7px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+        
+        .teaching-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 10px;
+        }
+        
+        .teaching-item {
+            background: #f7fafc;
+            padding: 12px;
+            border-radius: 6px;
+            border-top: 3px solid #667eea;
+        }
+        
+        .teaching-org {
+            font-weight: 600;
+            font-size: 9px;
+            color: #2d3748;
+            margin-bottom: 3px;
+        }
+        
+        .teaching-period {
+            font-size: 7px;
+            color: #718096;
+            margin-bottom: 5px;
+        }
+        
+        .teaching-desc {
+            font-size: 8px;
+            color: #4a5568;
+            line-height: 1.4;
+        }
+        
+        .speaking-note {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 10px;
+            font-size: 9px;
+            line-height: 1.4;
+        }
+        
+        .video-link {
+            color: #ffd700;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        @media print {
+            body { font-size: 8pt; }
+            .header { page-break-after: avoid; }
+            .section { page-break-inside: avoid; }
+            .experience-item { page-break-inside: avoid; }
+            .company-group { page-break-inside: avoid; }
+            .header::before { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-content">
+                <div class="profile-photo">AG</div>
+                <div class="header-info">
+                    <h1>Alberto Gómez Toribio</h1>
+                    <div class="subtitle">Onchain Specialist</div>
+                    <div class="contact-info">
+                        <div class="contact-item">📝 <a href="https://docs.google.com/forms/d/e/1FAIpQLSfvfh6f9INN9koUm310oMBL-JyUu5JVIhSNeVHTO4_yBdsZ_w/viewform?usp=dialog" style="color: inherit; text-decoration: none;">Contact Form</a></div>
+                        <div class="contact-item">💼 <a href="https://linkedin.com/in/gotoalberto" style="color: inherit; text-decoration: none;">/in/gotoalberto</a></div>
+                        <div class="contact-item">📍 Madrid, Spain</div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="content">
+            <section class="section">
+                <h2 class="section-title">
+                    <div class="section-icon">📝</div>
+                    Summary
+                </h2>
+                <div class="summary-text">
+                    With more than 18 years of experience leading digital products, I'm an Onchain and finance specialist, AI enthusiast. Currently Head of Onchain at Bitso.com. I'm equally responsible for designing new products and leading technical teams to make them happen. I have worked as a technology specialist for government agencies such as the Ministry of Internal Affairs and the Supreme Court, private companies like Sony Entertainment and Telefónica R&D and I have led Onchain units at major exchanges like Bitso and Caixabank's Onchain strategy for four years. In 2014 I founded Coinffeine, the first crypto exchange owned by a Spanish bank: Bankinter. My expertise has led me to collaborate with entities such as the New York FED, the European Commission in Brussels, the Ministry of Economy, the House of Representatives of Spain, and the Bank of Spain, among many others.
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">
+                    <div class="section-icon">🏆</div>
+                    Acknowledgments
+                </h2>
+                <div class="awards-grid">
+                    <div class="award-item">
+                        <div class="award-icon">🥇</div>
+                        <div class="award-title">First Prize</div>
+                        <div class="award-details">Coinbase Hackathon, Paris [2024]</div>
+                    </div>
+                    <div class="award-item">
+                        <div class="award-icon">🥇</div>
+                        <div class="award-title">First Prize</div>
+                        <div class="award-details">ETH Global Hackathon, Tokyo [2023]</div>
+                    </div>
+                    <div class="award-item">
+                        <div class="award-icon">🏅</div>
+                        <div class="award-title">Best Project Award</div>
+                        <div class="award-details">ETH Global Hackathon, Lisbon [2023]</div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">
+                    <div class="section-icon">📰</div>
+                    Press Review Links
+                </h2>
+                <div class="press-links">
+                    <a href="#" class="press-link">Video Interview</a>
+                    <a href="#" class="press-link">ABC (2021)</a>
+                    <a href="#" class="press-link">Emprendedores</a>
+                    <a href="#" class="press-link">Expansión</a>
+                    <a href="#" class="press-link">Forbes</a>
+                    <a href="#" class="press-link">El País</a>
+                    <a href="#" class="press-link">El Mundo</a>
+                    <a href="#" class="press-link">EFE</a>
+                    <a href="#" class="press-link">Hipertextual</a>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">
+                    <div class="section-icon">💼</div>
+                    Professional Experience
+                </h2>
+
+                <div class="company-group">
+                    <div class="company-header">BITSO</div>
+                    <div class="company-positions">
+                        <div class="experience-item">
+                            <div class="experience-header">
+                                <div>
+                                    <div class="position-title">Head of Onchain</div>
+                                </div>
+                                <div class="date-range">Jan 2025 – now</div>
+                            </div>
+                            <div class="experience-description">
+                                Leading the definition and development of Onchain, Bitso's DEX. Responsible for product strategy, technical team leadership, and go-to-market execution. Overseeing the creation of a self-custody platform that combines CoinGecko-like discovery with gasless DEX trading across multiple chains including Ethereum, Solana, and Base. Managing cross-functional teams to deliver innovative Web3 user experiences for global crypto markets.
+                            </div>
+                            <div class="skills-chips">
+                                <span class="skill-chip">Smart Contracts</span>
+                                <span class="skill-chip">Claude Code AI Dev</span>
+                                <span class="skill-chip">Technical Leadership</span>
+                                <span class="skill-chip">Product Design</span>
+                                <span class="skill-chip">NextJS</span>
+                                <span class="skill-chip">ERC4337</span>
+                                <span class="skill-chip">MEV Research</span>
+                                <span class="skill-chip">Privy</span>
+                                <span class="skill-chip">LiFi</span>
+                                <span class="skill-chip">ZeroDev</span>
+                                <span class="skill-chip">AWS</span>
+                            </div>
+                        </div>
+
+                        <div class="experience-item">
+                            <div class="experience-header">
+                                <div>
+                                    <div class="position-title">R&D Principal Engineer</div>
+                                </div>
+                                <div class="date-range">Nov 2023 – Dec 2024</div>
+                            </div>
+                            <div class="experience-description">
+                                Reporting directly to one of Bitso's founders, my work involves designing new products for Bitso and leading technical teams to bring them to life. During 2024, I led the product design of a non-custodial platform similar to usepicnic.com for Bitso. I also initiated collaborative projects with protocols such as Yearn, Uniswap, and Arbitrum.
+                            </div>
+                            <div class="skills-chips">
+                                <span class="skill-chip">Cross-chain Infrastructure</span>
+                                <span class="skill-chip">Product Design</span>
+                                <span class="skill-chip">AMM Design</span>
+                                <span class="skill-chip">Technical Leadership</span>
+                                <span class="skill-chip">Composability</span>
+                                <span class="skill-chip">Solidity Development</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="company-group">
+                    <div class="company-header">CRYPTOPLAZA</div>
+                    <div class="company-positions">
+                        <div class="experience-item">
+                            <div class="experience-header">
+                                <div>
+                                    <div class="position-title">CTO and Partner</div>
+                                </div>
+                                <div class="date-range">Dec 2021 – Nov 2023</div>
+                            </div>
+                            <div class="experience-description">
+                                Porsche, IBIS Hotels, and Hugo Boss, among others, are clients of the product where I lead technology and strategy: Brand Collections. This is a digital marketing and NFT product created in collaboration with one of the world's largest NFT digital agencies: POAP Studio. My role involves leading the product strategy and technical teams to bring it to action.
+                            </div>
+                            <div class="skills-chips">
+                                <span class="skill-chip">Onchain Product Design</span>
+                                <span class="skill-chip">NFT Protocols</span>
+                                <span class="skill-chip">Technical Leadership</span>
+                                <span class="skill-chip">Developer Community</span>
+                                <span class="skill-chip">Open Source</span>
+                                <span class="skill-chip">Tokenomics Design</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="company-group">
+                    <div class="company-header">CAIXABANK</div>
+                    <div class="company-positions">
+                        <div class="experience-item">
+                            <div class="experience-header">
+                                <div>
+                                    <div class="position-title">Innovation & Blockchain Specialist</div>
+                                </div>
+                                <div class="date-range">Nov 2017 – Mar 2021</div>
+                            </div>
+                            <div class="experience-description">
+                                I was the product owner of Stockmind.io, our Blockchain tokenization and electronic money platform. My responsibility was defining the open innovation strategy to design new products and make them happen by leading technical teams. I also worked closely with crypto startups (like Xapo or GK8) to identify new business opportunities for the bank.
+                            </div>
+                            <div class="skills-chips">
+                                <span class="skill-chip">Onchain Product Design</span>
+                                <span class="skill-chip">Banking Innovation</span>
+                                <span class="skill-chip">Technical Leadership</span>
+                                <span class="skill-chip">Tokenization</span>
+                                <span class="skill-chip">Regulatory Compliance</span>
+                                <span class="skill-chip">Governance Systems</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="company-group">
+                    <div class="company-header">BARRABÉS GROUP</div>
+                    <div class="company-positions">
+                        <div class="experience-item">
+                            <div class="experience-header">
+                                <div>
+                                    <div class="position-title">Chief Technology Officer</div>
+                                </div>
+                                <div class="date-range">Nov 2015 – Nov 2017</div>
+                            </div>
+                            <div class="experience-description">
+                                I launched and led a consultant Blockchain company in Barrabés Group. Straightaway, I gained the trust of big clients and investors like Endesa, Ferrovial, Santander Bank or Caixabank to launch Blockchain projects and startups. My work consisted of leading technical teams and strategy.
+                            </div>
+                            <div class="skills-chips">
+                                <span class="skill-chip">Blockchain Product Design</span>
+                                <span class="skill-chip">Enterprise Blockchain</span>
+                                <span class="skill-chip">Technical Leadership</span>
+                                <span class="skill-chip">Developer Education</span>
+                                <span class="skill-chip">Decentralization</span>
+                                <span class="skill-chip">Public Goods</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="company-group">
+                    <div class="company-header">COINFFEINE</div>
+                    <div class="company-positions">
+                        <div class="experience-item">
+                            <div class="experience-header">
+                                <div>
+                                    <div class="position-title">CEO & Co-Founder</div>
+                                </div>
+                                <div class="date-range">Oct 2013 – Nov 2015</div>
+                            </div>
+                            <div class="experience-description">
+                                Coinffeine is a Bitcoin decentralized crypto exchange. In June 2014, I successfully closed the investment agreements with banks such as Bankinter, among others. Coinffeine became the first Bitcoin Company to explore the offering of Crypto Assets in the banking sector. I moved to San Francisco and New York in 2015 to design our go-to-market strategy in the US.
+                            </div>
+                            <div class="skills-chips">
+                                <span class="skill-chip">DEX Product Design</span>
+                                <span class="skill-chip">Consensus Mechanisms</span>
+                                <span class="skill-chip">Technical Leadership</span>
+                                <span class="skill-chip">Permissionless Systems</span>
+                                <span class="skill-chip">Ecosystem Building</span>
+                                <span class="skill-chip">Cryptographic Research</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="company-group">
+                    <div class="company-header">SONY ENTERTAINMENT</div>
+                    <div class="company-positions">
+                        <div class="experience-item">
+                            <div class="experience-header">
+                                <div>
+                                    <div class="position-title">Lead Developer</div>
+                                </div>
+                                <div class="date-range">May 2012 – Dec 2012</div>
+                            </div>
+                            <div class="experience-description">
+                                I was the lead developer of Sony Entertainment's Social Life application, with more than 7 million users. I worked in an international team, coordinating a diverse group of developers from Japan, Italy, London, and Spain. I worked with Scrum, Lean, and DevOps methodologies.
+                            </div>
+                            <div class="skills-chips">
+                                <span class="skill-chip">Mobile Product Design</span>
+                                <span class="skill-chip">Global Teams</span>
+                                <span class="skill-chip">Technical Leadership</span>
+                                <span class="skill-chip">DevOps</span>
+                                <span class="skill-chip">Scalable Systems</span>
+                                <span class="skill-chip">Agile & Scrum</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">
+                    <div class="section-icon">🎓</div>
+                    Teaching and Advisory
+                </h2>
+                <div class="teaching-grid">
+                    <div class="teaching-item">
+                        <div class="teaching-org">CNMV (Spanish Regulatory Body)</div>
+                        <div class="teaching-period">[2020 - Now]</div>
+                        <div class="teaching-desc">Briefing on amendments to rules and laws, being part of the advisory committee and counselling about crypto and DeFi products.</div>
+                    </div>
+                    <div class="teaching-item">
+                        <div class="teaching-org">IE (Business School)</div>
+                        <div class="teaching-period">[2017 - Now]</div>
+                        <div class="teaching-desc">Cryptocurrencies and DeFi Teacher on Digital Banking Leadership Master.</div>
+                    </div>
+                    <div class="teaching-item">
+                        <div class="teaching-org">Ministry of Economy (Spain)</div>
+                        <div class="teaching-period">[2020 - Now]</div>
+                        <div class="teaching-desc">Advising on amendments to national and international rules and laws, being part of the advisory committee.</div>
+                    </div>
+                    <div class="teaching-item">
+                        <div class="teaching-org">ICAI (Technological University)</div>
+                        <div class="teaching-period">[2017 - Now]</div>
+                        <div class="teaching-desc">Cryptocurrencies and DeFi Teacher on Digital Banking Master.</div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">
+                    <div class="section-icon">🎤</div>
+                    Public Speaking
+                </h2>
+                <div class="speaking-note">
+                    I'm a frequent speaker in conferences like New York Summit (NYC, EEUU), 4YFN-Mobile World Congress (Shanghai y Barcelona), Venture Days Barranquilla y Webcongress Bogotá (Colombia), South Summit (Madrid y México DF), European Blockchain Convention (Barcelona), among others.
+                    <br><br>
+                    Would you like to see me in action? Here is one of my videos: <a href="https://youtu.be/JxzH4b6RxqQ" class="video-link">https://youtu.be/JxzH4b6RxqQ</a>
+                </div>
+            </section>
+        </div>
+    </div>
+</body>
+</html>
